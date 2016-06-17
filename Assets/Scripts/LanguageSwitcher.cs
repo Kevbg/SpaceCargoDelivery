@@ -2,14 +2,6 @@
 using UnityEngine.UI;
 
 public class LanguageSwitcher : MonoBehaviour {
-    void Start() {
-        switch (GameController.language) {
-            case GameController.Languages.portuguese:
-                Portuguese();
-                break;
-        }
-    }
-
     public void English() {
         GameController.language = GameController.Languages.english;
     }

@@ -1,6 +1,51 @@
-{
-  "playButtonText": {
+﻿{
+  "PlayButtonText": {
     "english": "Play",
     "portuguese": "Jogar"
+  },
+
+  "OptionsButtonText": {
+    "english": "Options",
+    "portuguese": "Opções"
+  },
+
+  "ExitButtonText": {
+    "english": "Exit",
+    "portuguese": "Sair"
+  },
+
+  "BackButtonText": {
+    "english": "Back",
+    "portuguese": "Voltar"
+  },
+
+  "AudioButtonText": {
+    "english": "Audio",
+    "portuguese": "Áudio"
+  },
+
+  "LanguagesButtonText": {
+    "english": "Languages",
+    "portuguese": "Idiomas"
+  },
+
+  "SFXSliderText": {
+    "english": "SFX",
+    "portuguese": "SFX"
+  },
+
+  "MusicSliderText": {
+    "english": "Music",
+    "portuguese": "Música"
+  },
+
+  "EnglishButtonText": {
+    "english": "English",
+    "portuguese": "Inglês"
+  },
+
+  "PortugueseButtonText": {
+    "english": "Portuguese",
+    "portuguese": "Português"
   }
 }
