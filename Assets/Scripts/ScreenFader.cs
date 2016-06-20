@@ -24,25 +24,21 @@ public class ScreenFader : MonoBehaviour {
 
     public void FadeOut(float duration, float maxAlpha = 255) {
         img.CrossFadeAlpha(maxAlpha, duration, true);
-        StartCoroutine(DisableMouseClicks(duration));
+        GetComponent<Image>().raycastTarget = true;
     }
 
     public void FadeIn(float duration, float minAlpha = 0) {
         img.CrossFadeAlpha(minAlpha, duration, true);
+        GetComponent<Image>().raycastTarget = false;
     }
 
     public void QuickFadeOut() {
         img.CrossFadeAlpha(QuickFadeAlpha, QuickFadeDuration, true);
-        StartCoroutine(DisableMouseClicks(QuickFadeDuration));
+        GetComponent<Image>().raycastTarget = true;
     }
 
     public void QuickFadeIn() {
         img.CrossFadeAlpha(0, QuickFadeDuration, true);
-    }
-
-    public IEnumerator DisableMouseClicks(float duration) {
-        GetComponent<Image>().raycastTarget = true;
-        yield return new WaitForSeconds(duration);
         GetComponent<Image>().raycastTarget = false;
     }
 }

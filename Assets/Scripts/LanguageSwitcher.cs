@@ -19,7 +19,7 @@ public class LanguageSwitcher : MonoBehaviour {
     }
 
     public string FetchItem(string item) {
-        JsonParser parser = GameObject.FindGameObjectWithTag("GameController").GetComponent<JsonParser>();
+        JsonParser parser = GameObject.FindGameObjectWithTag("Menu").GetComponent<JsonParser>();
         return parser.GetItem(item, GameController.language.ToString()).ToString();
     }
 }

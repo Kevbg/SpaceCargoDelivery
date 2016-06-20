@@ -5,10 +5,13 @@ using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 
 public class GameController : MonoBehaviour {
+    private ScreenFader fader;
     public static GameController current;
+    public bool gamePaused { get; private set; }
     public string saveFilePath { get; private set; }
     public float aspectRatio { get; private set; }
-    
+    public float screenWidth { get; private set; }
+    public float screenHeight { get; private set; }
     public enum Languages {
         english,
         portuguese
@@ -24,8 +27,12 @@ public class GameController : MonoBehaviour {
             DontDestroyOnLoad(gameObject);
             current = this;
 
+            fader = GameObject.FindGameObjectWithTag("Fader").GetComponent<ScreenFader>();
             Screen.sleepTimeout = SleepTimeout.NeverSleep;
+
             aspectRatio = (float)Screen.width / (float)Screen.height;
+            screenWidth = (Camera.main.orthographicSize * 2) * aspectRatio;
+            screenHeight = Camera.main.orthographicSize * 2;
 
             saveFilePath = Application.persistentDataPath + "/SCDPrefs.dat";
             Load();
@@ -34,13 +41,16 @@ public class GameController : MonoBehaviour {
         }
     }
 
-    public void Exit(float fadeOutDuration) {
-        StartCoroutine(ExitGame(fadeOutDuration));
-    }
-
-    IEnumerator ExitGame(float fadeOutDuration) {
+    public IEnumerator ExitGame(float fadeOutDuration) {
         ScreenFader sf = GameObject.FindGameObjectWithTag("Fader").GetComponent<ScreenFader>();
+        GameObject bgm = GameObject.FindGameObjectWithTag("BGM");
+
+        if (bgm != null) {
+            bgm.GetComponent<BGMControl>().FadeOut(fadeOutDuration);
+        }
+
         sf.FadeOut(fadeOutDuration);
+
         yield return new WaitForSeconds(fadeOutDuration);
 
 #if UNITY_EDITOR
@@ -81,6 +91,18 @@ public class GameController : MonoBehaviour {
 
             throw new FileNotFoundException("Could not load prefs file", saveFilePath);
         }
+    }
+
+    public void Pause() {
+        Time.timeScale = 0;
+        gamePaused = true;
+        fader.QuickFadeOut();
+    }
+
+    public void Resume() {
+        Time.timeScale = 1;
+        gamePaused = false;
+        fader.QuickFadeIn();
     }
 
     void OnApplicationQuit() {

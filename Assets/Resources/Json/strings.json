@@ -47,5 +47,10 @@
   "PortugueseButtonText": {
     "english": "Portuguese",
     "portuguese": "Português"
+  },
+
+  "ResumeButtonText": {
+    "english": "Resume",
+    "portuguese": "Retomar"
   }
 }

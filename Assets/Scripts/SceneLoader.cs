@@ -13,8 +13,19 @@ public class SceneLoader : MonoBehaviour {
 
     public IEnumerator LoadScene(string level) {
         ScreenFader sf = GameObject.FindGameObjectWithTag("Fader").GetComponent<ScreenFader>();
+        GameObject bgm = GameObject.FindGameObjectWithTag("BGM");
+        float startTime = Time.realtimeSinceStartup;
+
+        if (bgm != null) {
+            bgm.GetComponent<BGMControl>().FadeOut(fadeDuration);
+        }
+
         sf.FadeOut(fadeDuration);
-        yield return new WaitForSeconds(fadeDuration);
+
+        while (Time.realtimeSinceStartup < startTime + fadeDuration) {
+            yield return null;
+        }
+
         SceneManager.LoadScene(level, LoadSceneMode.Single);
         sf.FadeIn(fadeDuration);
         isLoading = false;
