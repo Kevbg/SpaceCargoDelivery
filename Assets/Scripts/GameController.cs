@@ -5,8 +5,9 @@ using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 
 public class GameController : MonoBehaviour {
-    private ScreenFader fader;
+    public const int DefaultOrientationAngle = 35;
     public static GameController current;
+    private ScreenFader fader;
     public bool gamePaused { get; private set; }
     public string saveFilePath { get; private set; }
     public float aspectRatio { get; private set; }

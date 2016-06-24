@@ -14,7 +14,9 @@ public class LanguageSwitcher : MonoBehaviour {
         Component[] texts = GetComponentsInChildren<Text>();
 
         foreach (Text txt in texts) {
+            if (txt.gameObject.tag != "NoTranslation") {
                 txt.text = FetchItem(txt.name);
+            }
         }
     }
 

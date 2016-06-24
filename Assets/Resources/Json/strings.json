@@ -52,5 +52,39 @@
   "ResumeButtonText": {
     "english": "Resume",
     "portuguese": "Retomar"
+  },
+  "PausedText": {
+    "english": "Paused",
+    "portuguese": "Pausado"
+  },
+
+  "RestartButtonText": {
+    "english": "Restart",
+    "portuguese": "Reiniciar"
+  },
+
+  "ConfirmButtonText": {
+    "english": "Confirm",
+    "portuguese": "Confirmar"
+  },
+
+  "CancelButtonText": {
+    "english": "Cancel",
+    "portuguese": "Cancelar"
+  },
+
+  "GameOverText": {
+    "english": "Game Over",
+    "portuguese": "Game Over"
+  },
+
+  "FinalScoreText": {
+    "english": "Score",
+    "portuguese": "Pontuação"
+  },
+
+  "PlayerNamePlaceholder": {
+    "english": "Enter your name...",
+    "portuguese": "Digite seu nome..."
   }
 }

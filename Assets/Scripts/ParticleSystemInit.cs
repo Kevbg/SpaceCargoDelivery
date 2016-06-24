@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
-using System.Collections;
 
-public class ParticleSystemAlignment : MonoBehaviour {
+public class ParticleSystemInit : MonoBehaviour {
+    public float playbackSpeed = 2;
     private ParticleSystem particles;
 
 	void Start () {
@@ -19,5 +19,6 @@ public class ParticleSystemAlignment : MonoBehaviour {
             transform.position.z
         );
         shape.box = topAlignment;
+        particles.playbackSpeed = playbackSpeed;
     }
 }

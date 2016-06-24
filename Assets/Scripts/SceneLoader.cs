@@ -29,5 +29,7 @@ public class SceneLoader : MonoBehaviour {
         SceneManager.LoadScene(level, LoadSceneMode.Single);
         sf.FadeIn(fadeDuration);
         isLoading = false;
+
+        if (Time.timeScale != 1) { Time.timeScale = 1; }
     }
 }
